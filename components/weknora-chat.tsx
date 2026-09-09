@@ -2,7 +2,13 @@
 
 import Script from "next/script";
 
-export function WeKnoraChat({ baseUrl, channelId }: { baseUrl?: string; channelId?: string }) {
+export function WeKnoraChat({
+  baseUrl,
+  channelId,
+}: {
+  baseUrl: string | undefined;
+  channelId: string | undefined;
+}) {
   if (!baseUrl || !channelId) return null;
   return <Script
     src={`${baseUrl.replace(/\/$/, "")}/weknora-widget.js`}
