@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { SiteHeader } from "../components/site-header";
+import { WeKnoraChat } from "../components/weknora-chat";
 import { SITE_URL } from "../lib/site";
 import "./globals.css";
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <SiteHeader />
         {children}
+        <WeKnoraChat baseUrl={process.env.NEXT_PUBLIC_WEKNORA_BASE_URL} channelId={process.env.NEXT_PUBLIC_WEKNORA_EMBED_CHANNEL_ID} />
         <footer>
           公益信息项目，不构成法律意见。政策可能变化，请以官方来源为准。
         </footer>

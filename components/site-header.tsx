@@ -10,7 +10,8 @@ export function SiteHeader() {
       <nav aria-label="主导航">
         <Link href="/">文章</Link>
         <a href="/feeds/passway.xml">RSS</a>
-        <span aria-disabled="true">Wiki 即将开放</span>
+        <Link href="/wiki">Wiki</Link>
+        <Link href="/graph">图谱</Link>
       </nav>
     </header>
   );
