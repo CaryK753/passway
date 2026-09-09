@@ -1,0 +1,24 @@
+{
+  "name": "passway",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.15.0",
+  "scripts": {
+    "content:validate": "tsx packages/weknora-sync/src/cli.ts validate",
+    "content:feed": "tsx packages/weknora-sync/src/feed-cli.ts",
+    "weknora:plan": "tsx packages/weknora-sync/src/cli.ts plan",
+    "weknora:sync": "tsx packages/weknora-sync/src/cli.ts sync --apply",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "yaml": "2.9.0",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "26.5.0",
+    "tsx": "4.23.13",
+    "typescript": "7.0.2",
+    "vitest": "5.0.0"
+  }
+}
