@@ -9,9 +9,12 @@ export async function GET(request: Request): Promise<Response> {
     return Response.json({ error: "Chat is not configured" }, { status: 503 });
   }
   try {
+    const publicOrigin = process.env.PASSWAY_PUBLIC_URL
+      ? new URL(process.env.PASSWAY_PUBLIC_URL).origin
+      : new URL(request.url).origin;
     const response = await fetch(`${apiBase}/embed/${channelId}/exchange`, {
       method: "POST",
-      headers: { Authorization: `Embed ${publishToken}`, Origin: new URL(request.url).origin },
+      headers: { Authorization: `Embed ${publishToken}`, Origin: publicOrigin },
       cache: "no-store",
     });
     const body = await response.json();
