@@ -1,0 +1,10 @@
+[Unit]
+Description=Update Passway from GitHub when main changes
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/passway
+Environment=PASSWAY_PROJECT_DIR=/opt/passway
+ExecStart=/opt/passway/scripts/deploy-if-changed.sh

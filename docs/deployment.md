@@ -9,7 +9,7 @@ Passway 使用 Next.js standalone 镜像和 Docker Compose。容器内部监听 
 - `PASSWAY_PORT`：宿主机回环端口，默认 `3100`。
 - `PASSWAY_PUBLIC_URL`：正式外部基址，例如 `https://passway.example.org`。域名接入前可以留空；绑定域名后必须设置，以确保 RSS 中的自链接和文章链接稳定。
 
-WeKnora API Key 不属于 Web 容器运行配置，不得写入 Compose、镜像或浏览器环境变量。
+WeKnora 管理密钥和嵌入发布令牌只写入生产机权限为 `600` 的 `.env`，由服务端 Wiki 代理和短期令牌交换端点使用；不得写入 Git、镜像层或浏览器环境变量。浏览器只接触公开渠道 ID 和 30 分钟会话令牌。
 
 ## 部署命令
 
@@ -37,3 +37,15 @@ PASSWAY_PUBLIC_URL=https://你的域名
 ## 回滚
 
 切换到已验证的提交并重新构建。不要删除 `content/` 或改写 Git 历史；文章版本必须保持可审计。
+## 自动更新
+
+生产服务器使用 `passway-update.timer` 每五分钟检查一次 `origin/main`。只有远端提交变化时才执行仅快进更新和容器重建；文件锁阻止定时任务重叠，更新后必须通过容器健康检查。
+
+安装：
+
+```bash
+install -m 644 deploy/passway-update.service /etc/systemd/system/
+install -m 644 deploy/passway-update.timer /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable --now passway-update.timer
+```
