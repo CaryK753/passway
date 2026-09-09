@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { encodeWikiSlug, fetchWeKnora, WikiPage, wikiPath } from "../../../lib/weknora";
+import { renderWikiMarkdown } from "../../../lib/wiki-markdown";
 
 interface Props { params: Promise<{ slug: string[] }> }
 
@@ -18,7 +19,7 @@ export default async function WikiDetailPage({ params }: Props) {
       <Link className="back-link" href="/wiki">← 返回 Wiki</Link>
       <p className="eyebrow">AI DERIVED · {page.page_type}</p>
       <h1>{page.title}</h1><p className="article-summary">{page.summary}</p>
-      <div className="markdown-body"><ReactMarkdown remarkPlugins={[remarkGfm]}>{page.content}</ReactMarkdown></div>
+      <div className="markdown-body"><ReactMarkdown remarkPlugins={[remarkGfm]}>{renderWikiMarkdown(page.content)}</ReactMarkdown></div>
     </article>
     <aside className="source-panel">
       <p className="eyebrow">TRACEABILITY</p><h2>派生信息</h2>
