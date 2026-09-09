@@ -8,7 +8,7 @@ import {
   REVIEW_STATUSES,
   type ArticleMetadata,
   type ContentArticle,
-} from "./types.js";
+} from "./types";
 
 const isoDate = /^\d{4}-\d{2}-\d{2}$/;
 const slug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
