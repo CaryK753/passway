@@ -148,6 +148,12 @@ h1 { max-width: 760px; margin: 0; font-size: clamp(3rem, 8vw, 6.6rem); }
 .wiki-list h3 a { text-decoration: none; }
 .wiki-list p { margin-bottom: 0; color: var(--muted); }
 .graph-shell { overflow: auto; border: 1px solid var(--line); border-radius: 24px; background: var(--surface); }
+.graph-browser { display: grid; gap: 16px; }
+.graph-toolbar { display: flex; flex-wrap: wrap; align-items: end; gap: 14px; padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+.graph-toolbar label { display: grid; gap: 5px; color: var(--muted); font-size: .78rem; }
+.graph-toolbar input, .graph-toolbar select { min-height: 38px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 9px; color: var(--ink); background: var(--bg); }
+.graph-toolbar input[type="range"] { width: 150px; }
+.graph-toolbar span { margin-left: auto; color: var(--muted); }
 .graph-shell svg { display: block; min-width: 760px; width: 100%; }
 .graph-shell line { stroke: var(--line); stroke-width: 1.5; }
 .graph-shell circle { fill: var(--accent); stroke: var(--bg); stroke-width: 3; }
