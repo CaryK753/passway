@@ -17,7 +17,7 @@
 - [x] 显示核验日期、复核日期和官方来源。
 - [x] 实现 `/feeds/passway.xml` 动态全文 Feed。
 - [x] 实现 `/api/health` 健康检查。
-- [ ] 通过 GitHub Actions 的类型、测试和生产构建。
+- [x] 通过 GitHub Actions 的类型、测试和生产构建。
 - [ ] 部署后以公开 URL 验证 Feed，并接入 WeKnora RSS 数据源。
 
 ## 非目标
