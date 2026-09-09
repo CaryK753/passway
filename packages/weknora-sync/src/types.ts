@@ -24,7 +24,7 @@ export interface ArticleMetadata {
   effective_from: string | null;
   effective_until: string | null;
   sources: string[];
-  aliases?: string[];
+  aliases?: string[] | undefined;
 }
 
 export interface ContentArticle {
