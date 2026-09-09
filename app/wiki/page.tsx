@@ -23,7 +23,7 @@ export default async function WikiPage() {
         <div className="empty-state"><h2>Wiki 正在生成</h2><p>RSS 文档已经入库，WeKnora 正在完成解析与跨文档整理。</p></div> :
         <div className="wiki-groups">{groups.map((group) => <section key={group.type} className="wiki-group">
           <div className="section-heading"><h2>{group.type}</h2><span>{group.total} 页</span></div>
-          <div className="wiki-list">{group.items.map((item) => <article key={item.slug}><h3>{item.title}</h3><p>{item.summary}</p></article>)}</div>
+          <div className="wiki-list">{group.items.map((item) => <article key={item.slug}><h3><Link href={`/wiki/${item.slug}`}>{item.title}</Link></h3><p>{item.summary}</p></article>)}</div>
         </section>)}</div>}
   </main>;
 }

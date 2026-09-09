@@ -26,9 +26,9 @@ export function WikiGraphView() {
       const source = bySlug.get(edge.source); const target = bySlug.get(edge.target);
       return source && target ? <line key={`${edge.source}-${edge.target}`} x1={source.x} y1={source.y} x2={target.x} y2={target.y} /> : null;
     })}
-    {points.map((point) => <g key={point.slug} tabIndex={0} aria-label={point.title}>
-      <circle cx={point.x} cy={point.y} r={10 + Math.min(point.link_count, 10)} />
-      <text x={point.x + 16} y={point.y + 5}>{point.title}</text>
-    </g>)}
+    {points.map((point) => <a key={point.slug} href={`/wiki/${point.slug}`} aria-label={`打开 ${point.title}`}>
+      <g tabIndex={0}><circle cx={point.x} cy={point.y} r={10 + Math.min(point.link_count, 10)} />
+        <text x={point.x + 16} y={point.y + 5}>{point.title}</text></g>
+    </a>)}
   </svg></div>;
 }

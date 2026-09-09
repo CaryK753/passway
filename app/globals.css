@@ -145,12 +145,14 @@ h1 { max-width: 760px; margin: 0; font-size: clamp(3rem, 8vw, 6.6rem); }
 .wiki-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 24px; }
 .wiki-list article { padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
 .wiki-list h3 { margin-top: 0; }
+.wiki-list h3 a { text-decoration: none; }
 .wiki-list p { margin-bottom: 0; color: var(--muted); }
 .graph-shell { overflow: auto; border: 1px solid var(--line); border-radius: 24px; background: var(--surface); }
 .graph-shell svg { display: block; min-width: 760px; width: 100%; }
 .graph-shell line { stroke: var(--line); stroke-width: 1.5; }
 .graph-shell circle { fill: var(--accent); stroke: var(--bg); stroke-width: 3; }
 .graph-shell text { fill: var(--ink); font-size: 13px; }
+.graph-shell a:hover circle, .graph-shell a:focus circle { filter: brightness(1.25); stroke-width: 5; }
 
 footer {
   width: min(calc(100% - 40px), var(--max));
