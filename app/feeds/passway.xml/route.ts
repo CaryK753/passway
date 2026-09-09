@@ -1,5 +1,5 @@
 import { getPublicArticles } from "../../../lib/public-content";
-import { renderRssFeed } from "../../../packages/weknora-sync/src/feed.js";
+import { renderRssFeed } from "../../../packages/weknora-sync/src/feed";
 
 export const dynamic = "force-dynamic";
 

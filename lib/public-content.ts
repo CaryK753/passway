@@ -2,8 +2,8 @@ import path from "node:path";
 import {
   loadArticles,
   publishableArticles,
-} from "../packages/weknora-sync/src/content.js";
-import type { ContentArticle } from "../packages/weknora-sync/src/types.js";
+} from "../packages/weknora-sync/src/content";
+import type { ContentArticle } from "../packages/weknora-sync/src/types";
 
 const contentRoot = path.join(process.cwd(), "content");
 
