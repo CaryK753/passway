@@ -32,6 +32,8 @@ PASSWAY_PUBLIC_URL=https://你的域名
 
 重建容器后验证首页、健康检查和 `/feeds/passway.xml`。最后再将正式 Feed URL 添加到 WeKnora RSS 数据源。
 
+当前部署使用 `https://run.emberflare.pro`，反向代理目标为 `http://127.0.0.1:3100`。WeKnora RSS 数据源只能在 Feed 至少包含一篇 `published + verified` 文章后创建，空 Feed 不作为接入完成证据。
+
 ## 回滚
 
 切换到已验证的提交并重新构建。不要删除 `content/` 或改写 Git 历史；文章版本必须保持可审计。
