@@ -34,6 +34,8 @@ PASSWAY_PUBLIC_URL=https://你的域名
 
 当前部署使用 `https://run.emberflare.pro`，反向代理目标为 `http://127.0.0.1:3100`。WeKnora RSS 数据源只能在 Feed 至少包含一篇 `published + verified` 文章后创建，空 Feed 不作为接入完成证据。
 
+宝塔 Nginx 的全局配置可能启用 `proxy_cache`。Passway 的 HTML、RSC 和 API 响应必须在站点 `location /` 中显式设置 `proxy_cache off`、`proxy_no_cache 1` 和 `proxy_cache_bypass 1`，否则部署后可能继续返回旧的 Next.js 预渲染页面。可直接参考 `deploy/nginx-location.conf`；Next.js 的哈希静态资源仍使用自身的 immutable 缓存头。
+
 ## 回滚
 
 切换到已验证的提交并重新构建。不要删除 `content/` 或改写 Git 历史；文章版本必须保持可审计。
