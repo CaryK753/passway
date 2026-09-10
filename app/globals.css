@@ -140,11 +140,14 @@ h1 em { color: var(--accent); font-family: Georgia, "Songti SC", serif; font-wei
 .graph-toolbar input, .graph-toolbar select { min-height: 40px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 9px; color: var(--ink); background: var(--bg); }
 .graph-toolbar input[type="range"] { width: 150px; }
 .graph-toolbar span { margin-left: auto; color: var(--muted); }
+.graph-toolbar .graph-toggle { display: flex; flex-direction: row; gap: 7px; align-items: center; min-height: 40px; }
+.graph-toolbar .graph-toggle input { min-height: 0; accent-color: var(--accent); }
+.graph-note { display: flex; justify-content: space-between; gap: 20px; padding: 0 4px; color: var(--muted); font-size: .76rem; }
 .graph-shell { overflow: auto; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); box-shadow: var(--shadow); }
 .graph-shell svg { display: block; min-width: 760px; width: 100%; }
-.graph-shell line { stroke: var(--line); stroke-width: 1.5; }
+.graph-shell line { stroke: color-mix(in srgb, var(--accent) 16%, var(--line)); stroke-width: 1; }
 .graph-shell circle { fill: var(--accent); stroke: var(--bg); stroke-width: 3; }
-.graph-shell text { fill: var(--ink); font-size: 13px; }
+.graph-shell text { fill: var(--ink); font-size: 11px; font-weight: 650; paint-order: stroke; stroke: var(--surface); stroke-width: 4px; stroke-linejoin: round; }
 .graph-shell a:hover circle, .graph-shell a:focus circle { filter: brightness(1.25); stroke-width: 5; }
 
 footer { display: flex; align-items: end; justify-content: space-between; gap: 30px; padding: 40px 0 50px; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }
@@ -166,6 +169,7 @@ footer p { max-width: 520px; margin: 0; text-align: right; }
   .article-grid, .reader-layout, .wiki-list { grid-template-columns: 1fr; }
   .reader-layout { gap: 30px; padding-top: 44px; }
   .source-panel { position: static; }
+  .graph-note { align-items: start; flex-direction: column; gap: 2px; }
   footer { align-items: start; flex-direction: column; }
   footer p { text-align: left; }
 }
