@@ -28,7 +28,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {children}
         <WeKnoraChat />
         <footer>
-          公益信息项目，不构成法律意见。政策可能变化，请以官方来源为准。
+          <div><strong>Passway</strong><span>开放、可追溯的全球移民政策知识库。</span></div>
+          <p>公益信息项目，不构成法律意见。政策可能变化，请以官方来源为准。</p>
         </footer>
       </body>
     </html>
