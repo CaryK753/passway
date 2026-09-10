@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { WikiExplorer } from "../../components/wiki-explorer";
 import { fetchWeKnora, isWeKnoraConfigured, WikiIndex, wikiPath } from "../../lib/weknora";
 
 export const dynamic = "force-dynamic";
@@ -21,9 +22,6 @@ export default async function WikiPage() {
       <div className="empty-state"><h2>Wiki 暂时不可用</h2><p>文章仍可正常浏览，系统恢复后会自动显示派生内容。</p></div> :
       groups.length === 0 ?
         <div className="empty-state"><h2>Wiki 正在生成</h2><p>RSS 文档已经入库，WeKnora 正在完成解析与跨文档整理。</p></div> :
-        <div className="wiki-groups">{groups.map((group) => <section key={group.type} className="wiki-group">
-          <div className="section-heading"><h2>{group.type}</h2><span>{group.total} 页</span></div>
-          <div className="wiki-list">{group.items.map((item) => <article key={item.slug}><h3><Link href={`/wiki/${item.slug}`}>{item.title}</Link></h3><p>{item.summary}</p></article>)}</div>
-        </section>)}</div>}
+        <WikiExplorer groups={groups} />}
   </main>;
 }
